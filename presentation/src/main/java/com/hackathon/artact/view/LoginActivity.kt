@@ -1,5 +1,6 @@
 package com.hackathon.artact.view
 
+import androidx.lifecycle.Observer
 import com.hackathon.artact.R
 import com.hackathon.artact.base.BaseActivity
 import com.hackathon.artact.databinding.ActivityLoginBinding
@@ -14,5 +15,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
     override val layoutRes: Int
         get() = R.layout.activity_login
 
-    override fun observerViewModel() { }
+    override fun observerViewModel() {
+        with(viewModel) {
+            onBackEvent.observe(this@LoginActivity, Observer {
+                onBackPressed()
+            })
+        }
+    }
 }

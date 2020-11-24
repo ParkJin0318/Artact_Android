@@ -10,8 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Artact">
-
-        <activity android:name=".view.LoginActivity">
+        <activity android:name=".view.RegisterActivity"></activity>
+        <activity android:name=".view.LoginActivity" />
+        <activity android:name=".view.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.IntroActivity">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.hackathon.artact.viewmodel.IntroViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_main" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@color/white">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:onClick="@{() -> viewModel.onLoginClick()}"
+                android:text="@string/text_login"
+                android:fontFamily="@font/comfortaa"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/background_border" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:onClick="@{() -> viewModel.onRegisterClick()}"
+                android:text="@string/text_register"
+                android:fontFamily="@font/comfortaa"
+                android:textColor="@color/white"
+                android:background="@drawable/background_primary" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>
