@@ -10,10 +10,10 @@ val viewModelModule = module {
     viewModel { IntroViewModel() }
     viewModel { LoginViewModel(androidApplication(), get()) }
     viewModel { RegisterViewModel(get()) }
+    viewModel { ArtworkViewModel() }
 
     // Fragment
     viewModel { HomeViewModel(get()) }
-    viewModel { MyInfoViewModel(get()) }
+    viewModel { MyInfoViewModel(get(), get(), get(), get()) }
     viewModel { ShopViewModel(get()) }
-    viewModel { MenuViewModel() }
 }

@@ -15,4 +15,9 @@ class ShopFragment: BaseFragment<FragmentShopBinding, ShopViewModel>() {
         get() = R.layout.fragment_shop
 
     override fun observerViewModel() { }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getAllGoods()
+    }
 }

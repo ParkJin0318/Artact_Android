@@ -4,6 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.fragment.HomeFragment">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.hackathon.artact.viewmodel.HomeViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,7 +29,18 @@
                 android:fontFamily="@font/comfortaa"
                 android:textColor="@color/white"
                 android:textSize="30sp"
-                android:text="@string/text_gallery"/>
+                android:text="@string/text_gallery" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_add"
+                app:tint="@color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -35,8 +52,9 @@
                 android:layout_height="match_parent"
                 android:overScrollMode="never"
                 android:orientation="vertical"
+                app:adapter="@{viewModel.artworkAdapter}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_owner"/>
+                tools:listitem="@layout/item_artwork"/>
         </LinearLayout>
     </LinearLayout>
 </layout>

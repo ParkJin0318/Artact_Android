@@ -130,7 +130,10 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:overScrollMode="never"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                android:padding="15dp"
+                app:adapter="@{viewModel.orderAdapter}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_order"/>
         </LinearLayout>
     </LinearLayout>
 </layout>

@@ -4,9 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.fragment.ShopFragment">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.hackathon.artact.viewmodel.ShopViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:background="@color/colorPrimary">
 
         <LinearLayout
@@ -23,6 +30,30 @@
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:text="@string/title_shop"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_add"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:adapter="@{viewModel.goodsAdapter}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_goods"/>
         </LinearLayout>
     </LinearLayout>
 </layout>

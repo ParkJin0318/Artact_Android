@@ -22,10 +22,4 @@
         android:name="com.hackathon.artact.view.fragment.MyInfoFragment"
         android:label="@string/title_my_info"
         tools:layout="@layout/fragment_my_info" />
-
-    <fragment
-        android:id="@+id/navigation_menu"
-        android:name="com.hackathon.artact.view.fragment.MenuFragment"
-        android:label="@string/title_menu"
-        tools:layout="@layout/fragment_menu" />
 </navigation>

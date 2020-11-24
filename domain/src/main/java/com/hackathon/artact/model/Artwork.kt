@@ -8,5 +8,6 @@ data class Artwork(
         val uploadTime: String,
         val createdTime: String,
         val price: Int,
-        val hashtag: String
+        val hashtag: String,
+        val files: List<String>
 )
