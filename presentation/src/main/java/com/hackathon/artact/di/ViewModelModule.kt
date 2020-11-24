@@ -14,4 +14,5 @@ val viewModelModule = module {
     viewModel { HomeViewModel() }
     viewModel { MyInfoViewModel() }
     viewModel { ShopViewModel() }
+    viewModel { MenuViewModel() }
 }

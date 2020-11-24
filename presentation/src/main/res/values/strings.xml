@@ -3,7 +3,9 @@
 
     <string name="title_home">Home</string>
     <string name="title_shop">Shop</string>
+    <string name="title_add">Add</string>
     <string name="title_my_info">Profile</string>
+    <string name="title_menu">Menu</string>
 
     <string name="text_login">Login</string>
     <string name="text_register">Register</string>
