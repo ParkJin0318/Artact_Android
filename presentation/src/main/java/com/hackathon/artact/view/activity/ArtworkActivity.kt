@@ -1,5 +1,6 @@
 package com.hackathon.artact.view.activity
 
+import androidx.lifecycle.Observer
 import com.hackathon.artact.R
 import com.hackathon.artact.base.BaseActivity
 import com.hackathon.artact.databinding.ActivityArtworkBinding
@@ -15,6 +16,10 @@ class ArtworkActivity : BaseActivity<ActivityArtworkBinding, ArtworkViewModel>()
         get() = R.layout.activity_artwork
 
     override fun observerViewModel() {
-
+        with(viewModel) {
+            onBackEvent.observe(this@ArtworkActivity, Observer {
+                onBackPressed()
+            })
+        }
     }
 }

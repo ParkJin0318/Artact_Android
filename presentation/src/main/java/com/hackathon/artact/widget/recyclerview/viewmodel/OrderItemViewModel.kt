@@ -9,11 +9,14 @@ class OrderItemViewModel : BaseViewModel() {
     val price = MutableLiveData<String>()
     val date = MutableLiveData<String>()
     val userName = MutableLiveData<String>()
+    val image = MutableLiveData<String>()
 
     fun bind(item: OrderInfo) {
         name.value = item.name
         price.value = "${item.price}원"
-        date.value = item.orderDate
+        date.value = item.orderDate.substring(0, 10)
         userName.value = item.memberId
+
+        if (item.files.isNotEmpty()) image.value = item.files[0]
     }
 }

@@ -74,14 +74,14 @@ class MyInfoViewModel(
         orders.forEach { order ->
             artworks.forEach { artwork ->
                 if (order.itemIdx == artwork.idx && order.type == 0) {
-                    val orderInfo = OrderInfo(order.orderDate, order.memberId, artwork.price, artwork.name)
+                    val orderInfo = OrderInfo(order.orderDate, order.memberId, artwork.price, artwork.name, artwork.files)
                     orderInfoList.add(orderInfo)
                 }
             }
 
             goods.forEach { goods ->
                 if (order.itemIdx == goods.idx && order.type == 1) {
-                    val orderInfo = OrderInfo(order.orderDate, order.memberId, goods.price, goods.name)
+                    val orderInfo = OrderInfo(order.orderDate, order.memberId, goods.price, goods.name, goods.files)
                     orderInfoList.add(orderInfo)
                 }
             }

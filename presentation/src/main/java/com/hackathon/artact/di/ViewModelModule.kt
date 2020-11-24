@@ -11,6 +11,7 @@ val viewModelModule = module {
     viewModel { LoginViewModel(androidApplication(), get()) }
     viewModel { RegisterViewModel(get()) }
     viewModel { ArtworkViewModel() }
+    viewModel { GoodsViewModel() }
 
     // Fragment
     viewModel { HomeViewModel(get()) }

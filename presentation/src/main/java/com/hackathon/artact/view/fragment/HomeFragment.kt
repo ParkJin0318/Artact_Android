@@ -4,6 +4,7 @@ import androidx.lifecycle.Observer
 import com.hackathon.artact.R
 import com.hackathon.artact.base.BaseFragment
 import com.hackathon.artact.databinding.FragmentHomeBinding
+import com.hackathon.artact.util.DataObject
 import com.hackathon.artact.view.activity.ArtworkActivity
 import com.hackathon.artact.viewmodel.HomeViewModel
 import com.hackathon.artact.widget.extension.startActivity
@@ -20,6 +21,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override fun observerViewModel() {
         with(viewModel) {
             artworkAdapter.shortClick.observe(this@HomeFragment, Observer {
+                DataObject.setArtwork(artworkList[it])
                 startActivity(ArtworkActivity::class.java)
             })
         }

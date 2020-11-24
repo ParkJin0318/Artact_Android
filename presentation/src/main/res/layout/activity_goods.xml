@@ -7,15 +7,15 @@
     <data>
         <variable
             name="viewModel"
-            type="com.hackathon.artact.viewmodel.ArtworkViewModel" />
+            type="com.hackathon.artact.viewmodel.GoodsViewModel" />
     </data>
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/colorPrimary">
-        
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -50,7 +50,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"/>
         </LinearLayout>
-        
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -61,7 +61,7 @@
                 android:layout_height="match_parent"
                 app:mutableImageUrl="@{viewModel.image}"/>
         </LinearLayout>
-        
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"

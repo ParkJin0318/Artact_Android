@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Artact"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.activity.ArtworkActivity"></activity>
+
         <activity android:name=".view.activity.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +24,8 @@
         <activity android:name=".view.activity.LoginActivity" />
         <activity android:name=".view.activity.RegisterActivity" />
         <activity android:name=".view.activity.MainActivity" />
+        <activity android:name=".view.activity.GoodsActivity" />
+        <activity android:name=".view.activity.ArtworkActivity" />
     </application>
 
 </manifest>

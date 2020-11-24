@@ -21,7 +21,8 @@
             android:layout_height="100dp"
             android:gravity="bottom"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
+            android:layout_marginEnd="20dp"
+            android:paddingBottom="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
