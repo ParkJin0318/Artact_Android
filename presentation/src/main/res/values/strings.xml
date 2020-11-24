@@ -19,4 +19,5 @@
     <string name="text_gallery">Gallery</string>
 
     <string name="error_empty">빈 칸 없이 입력해주세요</string>
+    <string name="error_not_match">비밀번호가 다릅니다</string>
 </resources>

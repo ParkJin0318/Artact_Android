@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hackathon.artact">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".widget.ArtactApplication"
         android:allowBackup="true"
@@ -9,7 +11,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Artact">
+        android:theme="@style/Theme.Artact"
+        android:usesCleartextTraffic="true">
 
         <activity android:name=".view.activity.IntroActivity">
             <intent-filter>

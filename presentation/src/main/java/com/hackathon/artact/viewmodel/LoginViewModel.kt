@@ -2,9 +2,13 @@ package com.hackathon.artact.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import com.hackathon.artact.base.BaseViewModel
+import com.hackathon.artact.usecase.LoginUseCase
 import com.hackathon.artact.widget.SingleLiveEvent
+import io.reactivex.observers.DisposableCompletableObserver
 
-class LoginViewModel : BaseViewModel() {
+class LoginViewModel(
+        private val loginUseCase: LoginUseCase
+) : BaseViewModel() {
 
     val id = MutableLiveData<String>()
     val pw = MutableLiveData<String>()
@@ -25,8 +29,15 @@ class LoginViewModel : BaseViewModel() {
             return
         }
 
-        // Login Code
-        onSuccessEvent.call()
+        addDisposable(loginUseCase.buildUseCaseObservable(LoginUseCase.Params(id.value!!, pw.value!!)),
+                object : DisposableCompletableObserver() {
+                override fun onComplete() {
+                    onSuccessEvent.call()
+                }
+                override fun onError(e: Throwable) {
+                    onErrorEvent.value = e
+                }
+        })
     }
 
     fun onLoginClick() {

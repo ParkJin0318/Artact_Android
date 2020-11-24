@@ -1,6 +1,7 @@
 package com.hackathon.artact.view.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -39,6 +40,9 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
             onEmptyEvent.observe(this@RegisterActivity, Observer {
                 shortToast(R.string.error_empty)
             })
+            onNotMatchEvent.observe(this@RegisterActivity, Observer {
+                shortToast(R.string.error_not_match)
+            })
             onSuccessEvent.observe(this@RegisterActivity, Observer {
                 startActivity(MainActivity::class.java)
             })
@@ -58,7 +62,8 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
     private fun addPlaceSpinnerListener() {
         binding.ageSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                viewModel.age.value = array[position]
+                val age = array[position]
+                viewModel.age.value = age.substring(0, age.length - 1)
             }
             override fun onNothingSelected(parent: AdapterView<*>?) { }
         }

@@ -2,9 +2,14 @@ package com.hackathon.artact.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import com.hackathon.artact.base.BaseViewModel
+import com.hackathon.artact.usecase.RegisterUseCase
 import com.hackathon.artact.widget.SingleLiveEvent
+import io.reactivex.Single
+import io.reactivex.observers.DisposableCompletableObserver
 
-class RegisterViewModel : BaseViewModel() {
+class RegisterViewModel(
+        private val registerUseCase: RegisterUseCase
+) : BaseViewModel() {
 
     val name = MutableLiveData<String>()
     val age = MutableLiveData<String>()
@@ -18,18 +23,35 @@ class RegisterViewModel : BaseViewModel() {
     val onErrorEvent = SingleLiveEvent<Throwable>()
 
     val onEmptyEvent = SingleLiveEvent<Unit>()
+    val onNotMatchEvent = SingleLiveEvent<Unit>()
     val onBackEvent = SingleLiveEvent<Unit>()
 
     fun register() {
         val isEmpty = name.value.isNullOrEmpty() || id.value.isNullOrEmpty()
                 || pw.value.isNullOrEmpty() || pwConfirm.value.isNullOrEmpty()
 
+        val isNotMath = pw.value != pwConfirm.value
+
         if (isEmpty) {
             onEmptyEvent.call()
             return
         }
 
-        // Register Code
+        if (isNotMath) {
+            onNotMatchEvent.call()
+            return
+        }
+
+        addDisposable(
+                registerUseCase.buildUseCaseObservable(RegisterUseCase.Params(id.value!!, pw.value!!, name.value!!, age.value!!.toInt())),
+                object : DisposableCompletableObserver() {
+                    override fun onComplete() {
+                        onSuccessEvent.call()
+                    }
+                    override fun onError(e: Throwable) {
+                        onErrorEvent.value = e
+                    }
+                })
     }
 
     fun onRegisterClick() {

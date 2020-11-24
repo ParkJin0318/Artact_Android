@@ -21,6 +21,8 @@ buildscript {
         navigation_version = '2.3.1'
 
         gsonVersion = '2.8.5'
+
+        circularimageviewVersion = "3.2.0"
     }
     repositories {
         google()

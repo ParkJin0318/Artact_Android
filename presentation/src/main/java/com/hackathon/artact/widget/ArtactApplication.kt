@@ -1,7 +1,7 @@
 package com.hackathon.artact.widget
 
 import android.app.Application
-import com.hackathon.artact.di.viewModelModule
+import com.hackathon.artact.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -13,7 +13,8 @@ class ArtactApplication : Application() {
             androidContext(this@ArtactApplication)
 
             val modules =
-                listOf(viewModelModule)
+                listOf(networkModule, serviceModule, remoteModule,
+                    repositoryModule, useCaseModule, viewModelModule)
             modules(modules)
         }
     }

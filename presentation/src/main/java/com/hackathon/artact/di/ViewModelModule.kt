@@ -7,8 +7,8 @@ import org.koin.dsl.module
 val viewModelModule = module {
     // Activity
     viewModel { IntroViewModel() }
-    viewModel { LoginViewModel() }
-    viewModel { RegisterViewModel() }
+    viewModel { LoginViewModel(get()) }
+    viewModel { RegisterViewModel(get()) }
 
     // Fragment
     viewModel { HomeViewModel() }
