@@ -15,4 +15,9 @@ class MyInfoFragment: BaseFragment<FragmentMyInfoBinding, MyInfoViewModel>() {
         get() = R.layout.fragment_my_info
 
     override fun observerViewModel() { }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getMyInfo()
+    }
 }

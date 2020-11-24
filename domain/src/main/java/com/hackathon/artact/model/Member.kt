@@ -1,9 +1,9 @@
-package com.hackathon.artact.request
+package com.hackathon.artact.model
 
-data class RegisterRequest(
+data class Member(
         val id: String,
-        val pw: String,
         val name: String,
         val age: Int,
+        val point: Int,
         val destination: String
 )

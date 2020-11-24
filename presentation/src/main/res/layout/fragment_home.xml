@@ -36,7 +36,7 @@
                 android:overScrollMode="never"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_writer"/>
+                tools:listitem="@layout/item_owner"/>
         </LinearLayout>
     </LinearLayout>
 </layout>

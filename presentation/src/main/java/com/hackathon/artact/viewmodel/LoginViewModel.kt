@@ -1,12 +1,15 @@
 package com.hackathon.artact.viewmodel
 
+import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.hackathon.artact.base.BaseViewModel
-import com.hackathon.artact.usecase.LoginUseCase
+import com.hackathon.artact.usecase.auth.LoginUseCase
+import com.hackathon.artact.util.SharedPreferenceManager
 import com.hackathon.artact.widget.SingleLiveEvent
-import io.reactivex.observers.DisposableCompletableObserver
+import io.reactivex.observers.DisposableSingleObserver
 
 class LoginViewModel(
+        private val application: Application,
         private val loginUseCase: LoginUseCase
 ) : BaseViewModel() {
 
@@ -30,14 +33,15 @@ class LoginViewModel(
         }
 
         addDisposable(loginUseCase.buildUseCaseObservable(LoginUseCase.Params(id.value!!, pw.value!!)),
-                object : DisposableCompletableObserver() {
-                override fun onComplete() {
-                    onSuccessEvent.call()
-                }
-                override fun onError(e: Throwable) {
-                    onErrorEvent.value = e
-                }
-        })
+                object : DisposableSingleObserver<String>() {
+                    override fun onSuccess(t: String) {
+                        SharedPreferenceManager.setToken(application, t)
+                        onSuccessEvent.call()
+                    }
+                    override fun onError(e: Throwable) {
+                        onErrorEvent.value = e
+                    }
+                })
     }
 
     fun onLoginClick() {
