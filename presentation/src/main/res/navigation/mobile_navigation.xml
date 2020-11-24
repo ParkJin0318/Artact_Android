@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.hackathon.artact.view.fragment.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_shop"
+        android:name="com.hackathon.artact.view.fragment.ShopFragment"
+        android:label="@string/title_shop"
+        tools:layout="@layout/fragment_shop" />
+
+    <fragment
+        android:id="@+id/navigation_my_info"
+        android:name="com.hackathon.artact.view.fragment.MyInfoFragment"
+        android:label="@string/title_my_info"
+        tools:layout="@layout/fragment_my_info" />
+</navigation>

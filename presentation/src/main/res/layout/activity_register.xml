@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.RegisterActivity">
+    tools:context=".view.activity.RegisterActivity">
 
     <data>
         <variable
@@ -123,6 +123,7 @@
                 android:layout_height="55dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/comfortaa"
+                android:onClick="@{() -> viewModel.onRegisterClick()}"
                 android:text="@string/text_register"
                 android:textColor="@color/white"
                 android:background="@drawable/background_blue"/>

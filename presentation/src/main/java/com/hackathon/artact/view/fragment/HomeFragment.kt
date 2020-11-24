@@ -1,0 +1,18 @@
+package com.hackathon.artact.view.fragment
+
+import com.hackathon.artact.R
+import com.hackathon.artact.base.BaseFragment
+import com.hackathon.artact.databinding.FragmentHomeBinding
+import com.hackathon.artact.viewmodel.HomeViewModel
+import org.koin.androidx.viewmodel.ext.android.getViewModel
+
+class HomeFragment: BaseFragment<FragmentHomeBinding, HomeViewModel>() {
+
+    override val viewModel: HomeViewModel
+        get() = getViewModel(HomeViewModel::class)
+
+    override val layoutRes: Int
+        get() = R.layout.fragment_home
+
+    override fun observerViewModel() { }
+}

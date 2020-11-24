@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.LoginActivity">
+    tools:context=".view.activity.LoginActivity">
 
     <data>
         <variable
@@ -54,6 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/comfortaa"
+                    android:text="@={viewModel.id}"
                     android:inputType="text"
                     android:hint="@string/text_id"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -67,6 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/comfortaa"
+                    android:text="@={viewModel.pw}"
                     android:inputType="textPassword"
                     android:hint="@string/text_pw"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -76,6 +78,7 @@
                 android:layout_height="55dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/comfortaa"
+                android:onClick="@{() -> viewModel.onLoginClick()}"
                 android:text="@string/text_login"
                 android:textColor="@color/white"
                 android:background="@drawable/background_blue"/>

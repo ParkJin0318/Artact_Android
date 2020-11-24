@@ -1,4 +1,4 @@
-package com.hackathon.artact.view
+package com.hackathon.artact.view.activity
 
 import android.os.Bundle
 import android.view.View
@@ -9,6 +9,8 @@ import com.hackathon.artact.R
 import com.hackathon.artact.base.BaseActivity
 import com.hackathon.artact.databinding.ActivityRegisterBinding
 import com.hackathon.artact.viewmodel.RegisterViewModel
+import com.hackathon.artact.widget.extension.shortToast
+import com.hackathon.artact.widget.extension.startActivity
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel>() {
@@ -28,8 +30,20 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
 
     override fun observerViewModel() {
         with(viewModel) {
+            onRegisterEvent.observe(this@RegisterActivity, Observer {
+                register()
+            })
             onBackEvent.observe(this@RegisterActivity, Observer {
                 onBackPressed()
+            })
+            onEmptyEvent.observe(this@RegisterActivity, Observer {
+                shortToast(R.string.error_empty)
+            })
+            onSuccessEvent.observe(this@RegisterActivity, Observer {
+                startActivity(MainActivity::class.java)
+            })
+            onErrorEvent.observe(this@RegisterActivity, Observer {
+                shortToast(it.message)
             })
         }
     }

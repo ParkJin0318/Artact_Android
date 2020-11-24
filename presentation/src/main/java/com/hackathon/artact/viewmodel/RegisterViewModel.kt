@@ -12,7 +12,29 @@ class RegisterViewModel : BaseViewModel() {
     val pw = MutableLiveData<String>()
     val pwConfirm = MutableLiveData<String>()
 
+    val onRegisterEvent = SingleLiveEvent<Unit>()
+
+    val onSuccessEvent = SingleLiveEvent<Unit>()
+    val onErrorEvent = SingleLiveEvent<Throwable>()
+
+    val onEmptyEvent = SingleLiveEvent<Unit>()
     val onBackEvent = SingleLiveEvent<Unit>()
+
+    fun register() {
+        val isEmpty = name.value.isNullOrEmpty() || id.value.isNullOrEmpty()
+                || pw.value.isNullOrEmpty() || pwConfirm.value.isNullOrEmpty()
+
+        if (isEmpty) {
+            onEmptyEvent.call()
+            return
+        }
+
+        // Register Code
+    }
+
+    fun onRegisterClick() {
+        onRegisterEvent.call()
+    }
 
     fun onBackClick() {
         onBackEvent.call()

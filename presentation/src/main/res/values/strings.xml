@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Artact</string>
 
+    <string name="title_home">Home</string>
+    <string name="title_shop">Shop</string>
+    <string name="title_my_info">Profile</string>
+
     <string name="text_login">Login</string>
     <string name="text_register">Register</string>
 
@@ -9,4 +13,8 @@
     <string name="text_pw_confirm">password confirm</string>
     <string name="text_name">name</string>
     <string name="text_age">age</string>
+
+    <string name="text_gallery">Gallery</string>
+
+    <string name="error_empty">빈 칸 없이 입력해주세요</string>
 </resources>

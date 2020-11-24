@@ -1,4 +1,4 @@
-package com.hackathon.artact.view
+package com.hackathon.artact.view.activity
 
 import androidx.lifecycle.Observer
 import com.hackathon.artact.R
